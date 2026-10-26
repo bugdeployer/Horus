@@ -18,4 +18,4 @@ For browsers import `@bug_deployer/horus-sdk/browser` and use explicit child sco
 
 Set `redaction: false` in integration code to disable key filtering. Capture size and duration limits still apply. Use a recorder per request or bounded session.
 
-Beta packages are not published yet. Maintained by bugdeployer. GPL-3.0-only.
+Install the beta with `npm install @bug_deployer/horus-sdk@beta`. Maintained by bugdeployer. GPL-3.0-only.

@@ -10,12 +10,12 @@ Sample capture from the test fixtures; no production data.
 
 ## Install
 
-The Python SDK beta is available. npm and Packagist packages are pending publication.
+The Python and JavaScript SDK betas are available. The workspace CLI upload is processing; Packagist publication is pending.
 
 | Distribution | Link |
 | --- | --- |
 | Workspace CLI · npm | |
-| JavaScript / TypeScript SDK · npm | |
+| JavaScript / TypeScript SDK · npm |  [@bug_deployer/horus-sdk](https://www.npmjs.com/package/@bug_deployer/horus-sdk) |
 | Python SDK · PyPI |  [horus-sdk](https://pypi.org/project/horus-sdk/) |
 | PHP SDK · Packagist | |
 

@@ -18,6 +18,7 @@ def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--audit", action="store_true")
+    parser.add_argument("--registry", action="store_true", help="Install published beta packages")
     args = parser.parse_args()
     import shutil
 
@@ -37,8 +38,8 @@ def main():
                 str(home),
                 "--no-audit",
                 "--no-fund",
-                str(ROOT / "dist/bug_deployer-horus-0.4.0-beta.1.tgz"),
-                str(ROOT / "dist/bug_deployer-horus-sdk-0.4.0-beta.1.tgz"),
+                "@bug_deployer/horus@0.4.0-beta.1" if args.registry else str(ROOT / "dist/bug_deployer-horus-0.4.0-beta.1.tgz"),
+                "@bug_deployer/horus-sdk@0.4.0-beta.1" if args.registry else str(ROOT / "dist/bug_deployer-horus-sdk-0.4.0-beta.1.tgz"),
             ],
             env,
             home,
@@ -77,7 +78,7 @@ def main():
                     "-m",
                     "pip",
                     "install",
-                    str(ROOT / "dist/horus_sdk-0.4.0b1-py3-none-any.whl"),
+                    "horus-sdk==0.4.0b1" if args.registry else str(ROOT / "dist/horus_sdk-0.4.0b1-py3-none-any.whl"),
                 ],
                 env,
                 home,
