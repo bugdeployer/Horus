@@ -17,4 +17,4 @@ Setup installs the bundled workspace wheel into a versioned virtual environment.
 
 The console is built with Next.js and exported during the release build. End users do not build it or run a separate Next.js server.
 
-This beta is not published yet. Maintained by bugdeployer. GPL-3.0-only.
+Install with `npm install -g @bug_deployer/horus@beta`. Maintained by bugdeployer. GPL-3.0-only.

@@ -1,6 +1,6 @@
 # Release checklist
 
-The private development repository is the working source. The public source is at bugdeployer/Horus. Python SDK 0.4.0b1 is published on PyPI; npm and Packagist publication is pending.
+The private development repository is the working source. The public source is at bugdeployer/Horus. Python SDK 0.4.0b1 is published on PyPI. The CLI, JavaScript SDK, and PHP SDK 0.4.0-beta.1 are published on npm and Packagist.
 
 ## Build
 
@@ -31,7 +31,7 @@ For a new version, use a fresh dist directory and update package/CLI version met
 
 When approved, rename the old private repository to Horus-development and create bugdeployer/Horus. Prepare a clean snapshot with one `initial beta release` commit. State that it is the initial public snapshot of an existing AI-assisted project. Preserve development history in the private repository; do not invent dates or prior manual authorship.
 
-The SDKs stay in this monorepo. Packagist needs a distribution repository with composer.json at its root. Generate that repository from packages/sdk-php; identify it as generated and link to the canonical Horus source. The root composer manifest is not the PHP SDK.
+The SDKs stay in this monorepo. Packagist needs a distribution repository with composer.json at its root. The generated repository is bugdeployer/horus-sdk-php. Copy releases from packages/sdk-php, preserve DISTRIBUTION.md, validate composer.json, and tag the version there. Keep the canonical Horus source link. Verify the new version is indexed on Packagist; trigger a manual update from its Manage menu if needed. The root composer manifest is not the PHP SDK.
 
 ## Publish
 

@@ -2,10 +2,10 @@
 
 ## Packaged workspace
 
-Packages are not published yet. Build them using [the release instructions](releasing.md), then install the CLI tarball from dist.
+Install the beta from npm. For local builds, see [the release instructions](releasing.md).
 
 ```sh
-npm install -g ./dist/bug_deployer-horus-0.4.0-beta.1.tgz
+npm install -g @bug_deployer/horus@beta
 horus setup
 horus start
 ```

@@ -10,20 +10,19 @@ Sample capture from the test fixtures; no production data.
 
 ## Install
 
-The Python and JavaScript SDK betas are available. The workspace CLI upload is processing; Packagist publication is pending.
+The workspace and SDK betas are available from npm, PyPI, and Packagist.
 
 | Distribution | Link |
 | --- | --- |
-| Workspace CLI · npm | |
+| Workspace CLI · npm |  [@bug_deployer/horus](https://www.npmjs.com/package/@bug_deployer/horus) |
 | JavaScript / TypeScript SDK · npm |  [@bug_deployer/horus-sdk](https://www.npmjs.com/package/@bug_deployer/horus-sdk) |
 | Python SDK · PyPI |  [horus-sdk](https://pypi.org/project/horus-sdk/) |
-| PHP SDK · Packagist | |
+| PHP SDK · Packagist |  [bugdeployer/horus-sdk](https://packagist.org/packages/bugdeployer/horus-sdk) |
 
-After [development setup](CONTRIBUTING.md), build the artifacts and install the CLI tarball:
+Install the workspace:
 
 ```sh
-python scripts/build_release.py
-npm install -g ./dist/bug_deployer-horus-0.4.0-beta.1.tgz
+npm install -g @bug_deployer/horus@beta
 horus setup
 horus start
 ```
