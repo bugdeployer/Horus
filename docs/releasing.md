@@ -35,6 +35,8 @@ The SDKs stay in this monorepo. Packagist needs a distribution repository with c
 
 ## Publish
 
+The public repository has a manual `publish-python.yml` workflow for `horus-sdk`. Run it on main with `publish` unchecked to build, check metadata, and test delivery from the installed wheel. Select `publish` only when releasing to PyPI. The publish job uses the `pypi` environment and PyPI Trusted Publishing; no API token is stored. It uploads only the Python SDK, not the workspace or other runtimes.
+
 Publishing requires maintainer approval and registry account access. Use 0.4.0b1 for Python and 0.4.0-beta.1 for npm/PHP. Publish npm packages under the beta dist-tag. Test actual registry installs before adding links to README. Keep links blank until packages exist.
 
 Do not claim production readiness or unsupported platform coverage. See verification.md for the latest checks and open limits.
