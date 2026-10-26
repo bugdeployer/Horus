@@ -1,0 +1,16 @@
+.git
+.env
+.venv
+**/node_modules
+**/.next
+**/__pycache__
+**/*.db
+**/*.db-*
+artifacts
+apps/console/test-results
+apps/console/playwright-report
+
+dist
+**/out
+**/build
+**/*.egg-info

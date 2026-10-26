@@ -1,0 +1,32 @@
+{
+  "name": "@bugdeployer/horus",
+  "version": "0.4.0-beta.1",
+  "description": "Local runtime observation workspace",
+  "type": "module",
+  "license": "GPL-3.0-only",
+  "author": "bugdeployer",
+  "bin": {
+    "horus": "bin/horus.mjs"
+  },
+  "files": [
+    "bin",
+    "payload",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bugdeployer/Horus.git",
+    "directory": "packages/cli"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "beta"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  }
+}

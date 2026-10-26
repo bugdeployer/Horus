@@ -1,0 +1,59 @@
+name: runtime checks
+permissions:
+  contents: read
+on: [push, pull_request]
+jobs:
+  application:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: apps/console/package-lock.json
+      - name: Install PHP
+        run: sudo apt-get update && sudo apt-get install -y php-cli
+      - run: pip install -r requirements-dev.txt
+      - run: pip install -e packages/sdk-python -e apps/collector
+      - run: python -m pytest -q
+      - run: node --test packages/sdk-javascript/tests/*.test.js
+      - run: node --test packages/cli/tests/*.test.mjs
+      - run: php packages/sdk-php/tests/runtime.php
+      - run: npm ci
+        working-directory: apps/console
+      - run: apps/console/node_modules/.bin/tsc -p packages/sdk-javascript/tsconfig.json
+      - run: python scripts/build_release.py
+      - run: npx playwright install --with-deps chromium
+        working-directory: apps/console
+      - run: npm run test:e2e
+        working-directory: apps/console
+      - name: MCP protocol check
+        run: |
+          python -m uvicorn horus_workspace.main:app --host 127.0.0.1 --port 8000 &
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8000/api/health && break; sleep 1; done
+          python scripts/mcp_smoke.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-verification
+          path: |
+            artifacts/*.png
+            apps/console/test-results/
+  containers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose config --quiet
+      - run: docker compose up --build -d --wait
+      - run: |
+          curl -fsS http://127.0.0.1:3100/api/health
+          curl -fsS http://127.0.0.1:3100 > /dev/null
+          curl -fsS http://127.0.0.1:3100/api/projects
+      - run: docker compose logs
+        if: failure()
+      - run: docker compose down
+        if: always()

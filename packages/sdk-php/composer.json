@@ -1,0 +1,23 @@
+{
+  "name": "bugdeployer/horus-sdk",
+  "description": "Bounded opt-in runtime capture for Horus",
+  "type": "library",
+  "require": {
+    "php": ">=8.2"
+  },
+  "autoload": {
+    "files": [
+      "src/Recorder.php"
+    ]
+  },
+  "license": "GPL-3.0-only",
+  "authors": [
+    {
+      "name": "bugdeployer",
+      "homepage": "https://github.com/bugdeployer"
+    }
+  ],
+  "bin": [
+    "worker.php"
+  ]
+}

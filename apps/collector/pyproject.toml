@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "horus-workspace"
+version = "0.4.0b1"
+description = "Local runtime observation workspace for Horus"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+authors = [{name = "bugdeployer"}]
+dependencies = ["fastapi==0.162.0", "starlette==1.10.0", "uvicorn==0.38.0", "httpx==0.28.1", "pydantic==2.12.4", "mcp==1.30.0"]
+[project.scripts]
+horus-collector = "horus_workspace.server:main"
+[tool.setuptools.packages.find]
+include = ["horus_workspace*"]
+[tool.setuptools.package-data]
+horus_workspace = ["static/**/*", "static/*"]

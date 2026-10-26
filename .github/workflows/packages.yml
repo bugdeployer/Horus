@@ -1,0 +1,54 @@
+name: package installs
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - run: pip install build twine
+      - run: npm ci
+        working-directory: apps/console
+      - run: npm audit --omit=dev
+        working-directory: apps/console
+      - run: python scripts/build_release.py
+      - run: python scripts/validate_release.py
+      - run: sudo apt-get update && sudo apt-get install -y php-cli composer
+      - run: python scripts/smoke_php.py --composer "$(command -v composer)"
+      - run: python -m twine check dist/horus_sdk-0.4.0b1* dist/horus_workspace-0.4.0b1*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: beta-packages
+          path: dist/
+  install:
+    needs: build
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ["3.13"]
+        include:
+          - os: ubuntu-latest
+            python: "3.11"
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/download-artifact@v4
+        with:
+          name: beta-packages
+          path: dist/
+      - run: pip install pip-audit
+      - run: python scripts/smoke_install.py --audit
