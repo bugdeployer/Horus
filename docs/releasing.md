@@ -1,6 +1,6 @@
 # Release checklist
 
-The private development repository is the working source. No registry package or public release has been published yet.
+The private development repository is the working source. The public source is at bugdeployer/Horus. Python SDK 0.4.0b1 is published on PyPI; npm and Packagist publication is pending.
 
 ## Build
 

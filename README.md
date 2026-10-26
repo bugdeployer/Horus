@@ -10,13 +10,13 @@ Sample capture from the test fixtures; no production data.
 
 ## Install
 
-Beta packages are being prepared. Registry links will be added after publication.
+The Python SDK beta is available. npm and Packagist packages are pending publication.
 
 | Distribution | Link |
 | --- | --- |
 | Workspace CLI · npm | |
 | JavaScript / TypeScript SDK · npm | |
-| Python SDK · PyPI | |
+| Python SDK · PyPI |  [horus-sdk](https://pypi.org/project/horus-sdk/) |
 | PHP SDK · Packagist | |
 
 After [development setup](CONTRIBUTING.md), build the artifacts and install the CLI tarball:

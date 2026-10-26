@@ -17,4 +17,4 @@ with recorder.trace("request"):
 
 Use one recorder per request. Delivery runs in a bounded background queue; short-lived processes may exit before it finishes. Use `recorder.save("capture.json")` for an offline backup. Redaction is enabled by default; `redaction=False` disables key filtering. Only explicitly observed code is recorded.
 
-Beta packages are not published yet. Maintained by bugdeployer. GPL-3.0-only. See the repository for setup and known limits.
+Install the beta with `python -m pip install horus-sdk==0.4.0b1`. Available on [PyPI](https://pypi.org/project/horus-sdk/). Maintained by bugdeployer. GPL-3.0-only. See the repository for setup and known limits.
