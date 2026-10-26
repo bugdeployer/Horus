@@ -5,7 +5,7 @@
 Packages are not published yet. Build them using [the release instructions](releasing.md), then install the CLI tarball from dist.
 
 ```sh
-npm install -g ./dist/bugdeployer-horus-0.4.0-beta.1.tgz
+npm install -g ./dist/bug_deployer-horus-0.4.0-beta.1.tgz
 horus setup
 horus start
 ```

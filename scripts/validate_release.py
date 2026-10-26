@@ -54,8 +54,8 @@ def validate(dist, include_public=False):
         f"horus_sdk-{py_version}.tar.gz",
         f"horus_workspace-{py_version}-py3-none-any.whl",
         f"horus_workspace-{py_version}.tar.gz",
-        f"bugdeployer-horus-{version}.tgz",
-        f"bugdeployer-horus-sdk-{version}.tgz",
+        f"bug_deployer-horus-{version}.tgz",
+        f"bug_deployer-horus-sdk-{version}.tgz",
         f"horus-php-sdk-{version}.tar.gz",
     }
     sums = {}
@@ -107,11 +107,11 @@ def validate(dist, include_public=False):
                     ROOT / "THIRD_PARTY_NOTICES.txt",
                 )
     for filename, package, name in [
-        (f"bugdeployer-horus-{version}.tgz", "packages/cli", "@bugdeployer/horus"),
+        (f"bug_deployer-horus-{version}.tgz", "packages/cli", "@bug_deployer/horus"),
         (
-            f"bugdeployer-horus-sdk-{version}.tgz",
+            f"bug_deployer-horus-sdk-{version}.tgz",
             "packages/sdk-javascript",
-            "@bugdeployer/horus-sdk",
+            "@bug_deployer/horus-sdk",
         ),
     ]:
         files = tar_files(dist / filename)

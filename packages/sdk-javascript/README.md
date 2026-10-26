@@ -3,7 +3,7 @@
 Runtime capture for Node.js 22+ and browser applications. TypeScript declarations are included.
 
 ```js
-import { Recorder } from "@bugdeployer/horus-sdk";
+import { Recorder } from "@bug_deployer/horus-sdk";
 
 const recorder = new Recorder("my-app", { endpoint: "http://127.0.0.1:3100" });
 const processOrder = recorder.observe("orders.process", async order => {
@@ -14,7 +14,7 @@ await recorder.trace("request", () => processOrder({ id: 17 }));
 await recorder.delivery?.flush(); // Wait before a CLI process exits.
 ```
 
-For browsers import `@bugdeployer/horus-sdk/browser` and use explicit child scopes. Cross-origin delivery needs an application-side proxy; the collector does not enable unrestricted CORS. Browser page closure can lose queued captures.
+For browsers import `@bug_deployer/horus-sdk/browser` and use explicit child scopes. Cross-origin delivery needs an application-side proxy; the collector does not enable unrestricted CORS. Browser page closure can lose queued captures.
 
 Set `redaction: false` in integration code to disable key filtering. Capture size and duration limits still apply. Use a recorder per request or bounded session.
 

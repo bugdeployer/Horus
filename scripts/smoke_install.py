@@ -37,13 +37,13 @@ def main():
                 str(home),
                 "--no-audit",
                 "--no-fund",
-                str(ROOT / "dist/bugdeployer-horus-0.4.0-beta.1.tgz"),
-                str(ROOT / "dist/bugdeployer-horus-sdk-0.4.0-beta.1.tgz"),
+                str(ROOT / "dist/bug_deployer-horus-0.4.0-beta.1.tgz"),
+                str(ROOT / "dist/bug_deployer-horus-sdk-0.4.0-beta.1.tgz"),
             ],
             env,
             home,
         )
-        cli = ["node", str(home / "node_modules/@bugdeployer/horus/bin/horus.mjs")]
+        cli = ["node", str(home / "node_modules/@bug_deployer/horus/bin/horus.mjs")]
         run(cli + ["doctor"], env, home)
         run(cli + ["setup"], env, home)
         with socket.socket() as sock:
@@ -94,7 +94,7 @@ def main():
             ) as response:
                 assert response.status == 201
             (home / "node-smoke.mjs").write_text(
-                'import {Recorder} from "@bugdeployer/horus-sdk"; const r=new Recorder("installed-node",{endpoint:'
+                'import {Recorder} from "@bug_deployer/horus-sdk"; const r=new Recorder("installed-node",{endpoint:'
                 + json.dumps(base)
                 + '}); await r.trace("request",s=>s.checkpoint("count",7)); const status=await r.delivery.flush(); if(status.sent!==1)throw Error("delivery failed");'
             )

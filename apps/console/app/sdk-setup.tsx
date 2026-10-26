@@ -21,7 +21,7 @@ recorder.save("capture.json")`,
   typescript: {
     title: "TypeScript",
     install: "npm install /path/to/horus/packages/sdk-javascript",
-    code: `import { Recorder } from "@bugdeployer/horus-sdk";
+    code: `import { Recorder } from "@bug_deployer/horus-sdk";
 
 const recorder = new Recorder("my-typescript-app", { endpoint: "http://127.0.0.1:3100" });
 type Payload = { id: string };
@@ -37,7 +37,7 @@ recorder.save("capture.json");`,
   javascript: {
     title: "JavaScript",
     install: "npm install /path/to/horus/packages/sdk-javascript",
-    code: `import { Recorder } from "@bugdeployer/horus-sdk";
+    code: `import { Recorder } from "@bug_deployer/horus-sdk";
 
 const recorder = new Recorder("my-node-app", { endpoint: "http://127.0.0.1:3100" });
 const process = recorder.observe("app.process", async (payload) => {
@@ -52,7 +52,7 @@ recorder.save("capture.json");`,
   browser: {
     title: "Browser JS / TS",
     install: "npm install /path/to/horus/packages/sdk-javascript",
-    code: `import { Recorder } from "@bugdeployer/horus-sdk/browser";
+    code: `import { Recorder } from "@bug_deployer/horus-sdk/browser";
 
 const recorder = new Recorder("my-browser-app", { endpoint: location.origin });
 await recorder.trace("click-17", scope =>

@@ -23,7 +23,7 @@ After [development setup](CONTRIBUTING.md), build the artifacts and install the 
 
 ```sh
 python scripts/build_release.py
-npm install -g ./dist/bugdeployer-horus-0.4.0-beta.1.tgz
+npm install -g ./dist/bug_deployer-horus-0.4.0-beta.1.tgz
 horus setup
 horus start
 ```
